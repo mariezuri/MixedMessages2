@@ -2,6 +2,7 @@ function generateRandomNumber(num) {
   // Gets # from 0 -> num - 1
   return Math.floor(Math.random() * num);
 }
+const clickMeButton = document.getElementById('click-me')
 
 const collectiveWisdom = {
   adjective: ["happy", "thankful", "joyful"],
@@ -33,12 +34,21 @@ for (let prop in collectiveWisdom) {
       personalWisdom.push("There is not enough info.");
   }
 }
-
 function formatWisdom(wisdom) {
   // Add some ASCII here?
   // Add in more symbols to the array? like emojies or what not?
   const formatted = personalWisdom.join("\n");
-  console.log(formatted);
+  return formatted 
 }
 
-formatWisdom(personalWisdom);
+function addContentToPage(quote){
+  const textArea= document.getElementById('collectiveWisdom')
+  textArea.innerHTML = quote
+}
+
+clickMeButton.addEventListener('click',function(){
+const quote = formatWisdom(personalWisdom)
+addContentToPage(quote)
+})
+
+
